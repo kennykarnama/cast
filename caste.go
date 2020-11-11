@@ -1229,6 +1229,7 @@ func StringToDate(s string) (time.Time, error) {
 		time.StampMilli,
 		time.StampMicro,
 		time.StampNano,
+		"2006-01-02T15:04", // RFC339 without ss
 	})
 }
 
