@@ -73,7 +73,6 @@ func ToDurationE(i interface{}) (d time.Duration, err error) {
 // ToBoolE casts an interface to a bool type.
 func ToBoolE(i interface{}) (bool, error) {
 	i = indirect(i)
-
 	switch b := i.(type) {
 	case bool:
 		return b, nil
@@ -81,6 +80,11 @@ func ToBoolE(i interface{}) (bool, error) {
 		return false, nil
 	case int:
 		if i.(int) != 0 {
+			return true, nil
+		}
+		return false, nil
+	case int64:
+		if i.(int64) != 0 {
 			return true, nil
 		}
 		return false, nil
