@@ -88,6 +88,12 @@ func ToBoolE(i interface{}) (bool, error) {
 			return true, nil
 		}
 		return false, nil
+	case float64:
+		f, _ := i.(float64)
+		if int64(f) != 0 {
+			return true, nil
+		}
+		return false, nil
 	case string:
 		return strconv.ParseBool(i.(string))
 	default:

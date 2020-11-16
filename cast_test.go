@@ -1134,7 +1134,8 @@ func TestToBoolE(t *testing.T) {
 		{-1, true, false},
 		{int64(0), false, false},
 		{int64(1), true, false},
-
+		{float64(0), false, false},
+		{float64(1), true, false},
 		// errors
 		{"test", false, true},
 		{testing.T{}, false, true},
